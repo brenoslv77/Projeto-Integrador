@@ -1,0 +1,202 @@
+/* ======== ESTILIZAÇÃO BÁSICA ======== */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ font-family: 'Segoe UI', Roboto;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ color: #1a1a1a;
+ line-height: 1.6;
+}
+
+/* ======== HEADER ======== */
+header {
+ background-color: #fff;
+ border-bottom: 3px solid #667eea;
+ padding: 20px;
+ text-align: center;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+ font-size: 28px;
+ font-weight: 600;
+ color: #667eea;
+ margin-bottom: 5px;
+}
+
+header p {
+ color: #666;
+ font-size: 14px;
+}
+
+/* ================== SEÇÃO DE CÔMODOS ================== */
+main {
+ margin: 30px auto;
+ padding: 0 15px;
+ max-width: 1200px;
+}
+
+.comodos-section {
+ margin-bottom: 40px;
+}
+
+.titulo-section {
+ font-size: 18px;
+ font-weight: 600;
+ color: #fff;
+ margin-bottom: 20px;
+ padding-left: 10px;
+ border-left: 4px solid #fff;
+ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dispositivo-card {
+ border-radius: 16px;
+ padding: 20px;
+ border: none;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+ color: #fff;
+ max-width: 300px;
+ min-width: 250px;
+ font-weight: 500;
+}
+
+.dispositivo-card[data-type="lampada"] {
+ background: linear-gradient(135deg, #f7b731 0%, #f4a017 100%);
+}
+
+.dispositivo-card[data-type="cortina"] {
+ background: linear-gradient(135deg, #ff6b6b 0%, #ee5a2f 100%);
+}
+
+.dispositivo-card[data-type="porta"] {
+ background: linear-gradient(135deg, #00d2d3 0%, #00a8a8 100%);
+}
+
+.dispositivo-card[data-type="exaustor"] {
+ background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+
+.dispositivo-card[data-type="varal"] {
+ background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
+}
+
+.dispositivo-card[data-type="portao"] {
+ background: linear-gradient(135deg, #ff7979 0%, #f06666 100%);
+}
+
+.dispositivo-card[data-type="irrigacao"] {
+ background: linear-gradient(135deg, #45b4d4 0%, #2d8aa2 100%);
+}
+
+.dispositivo-card div {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+}
+
+.dispositivo-card p {
+ font-size: 28px;
+}
+
+.dispositivo-title {
+ font-size: 16px;
+ font-weight: 600;
+ color: #fff;
+ margin-bottom: #fff;
+}
+
+.dispositivo-status {
+ font-size: 13px;
+ color: rgba(255, 255, 255, 0.9);
+ margin-bottom: 15px;
+ font-weight: 500;
+}
+
+.dispositivo-flex {
+ display: flex;
+ justify-content: space-around;
+}
+
+/* ================== CONTROLES ================== */
+.slider {
+ position: absolute;
+ background-color: rgba(255, 255, 255, 0.3);
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+ border-radius: 26px;
+ transition: 0.3s;
+}
+
+.slider:before {
+ position: absolute;
+ content: "";
+ height: 20px;
+ width: 20px;
+ left: 3px;
+ bottom: 3px;
+ background-color: #fff;
+ transition: 0.3s;
+ border-radius: 50%;
+}
+
+label {
+ position: relative;
+ display: inline-block;
+ width: 50px;
+ height: 26px;
+}
+
+label input {
+ opacity: 0;
+ width: 1000%;
+ height: 100%;
+ top: 0;
+ left: 0;
+ position: absolute;
+ z-index: 2;
+}
+
+label input:checked+ .slider:before {
+ transform: translateX(24px);
+}
+
+/*  ================== RESPONSIVIDADE ================== */
+
+@media(max-width: 480px) {
+        header{
+            padding: 15px;
+        }
+
+        header h1 {
+            font-size:20px;
+            }
+
+        header p {
+            font-size: 12px;
+        }
+
+        main {
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .dispositivo-flex{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dispositivo-card{
+            margin-bottom: 10px;
+            max-width: 250px;
+            max-height: 150px;
+        }
+}

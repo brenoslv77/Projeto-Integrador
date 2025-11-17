@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart RC Car</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <!-- TELA DE ENTRADA -->
+  <section id="home" class="page active">
+    <div class="intro">
+      <h1><span>Carro</span> Inteligente</h1>
+      <p>Controle e monitore seu carrinho inteligente</p>
+      <button class="next" onclick="goToPage('info')">Entrar</button>
+    </div>
+  </section>
+ 
+  <!-- INFORMAÇÕES DO CARRINHO -->
+  <section id="info" class="page">
+    <header>
+      <h2>Informações do Carrinho</h2>
+    </header>
+    <div class="card-container">
+      <div class="card">
+        <h3>Desenvolvido</h3>
+        <p>Breno, Uelton, Henrique e Juliana</p>
+      </div>
+      <div class="card">
+        <h3>Microcontrolador</h3>
+        <p>ESP32</p>
+      </div>
+      <div class="card">
+        <h3>Projeto Integrador</h3>
+        <p>Senac</p>
+      </div>
+      <div class="card">
+        <h3>Status</h3>
+        <p>Operando normalmente</p>
+      </div>
+    </div>
+    <button class="next" onclick="goToPage('control')">Ir para Controle</button>
+  </section>
+ 
+  <!-- CONTROLE DO CARRINHO -->
+  <section id="control" class="page">
+    <header>
+      <h2 id="Controle12">Controle do Carrinho</h2>
+    </header>
+ 
+    <div class="control-panel">
+ 
+      <div class="power-section">
+        <button id="powerBtn" class="btn-power">🔌 Ligar</button>
+        <button id="hornBtn" class="btn-horn">🔊 Buzina</button>
+      </div>
+ 
+      <div class="joystick">
+        <button class="btn up">▲</button>
+        <div class="middle">
+          <button class="btn left">◀</button>
+          <button id="centerBtn" class="btn stop red" disabled></button>
+          <button class="btn right">▶</button>
+        </div>
+        <button class="btn down">▼</button>
+      </div>
+ 
+      <div class="mode-section">
+        <button id="manualBtn" class="btn-mode active">🎮 Modo Manual</button>
+        <button id="autoBtn" class="btn-mode">⚙️ Modo Automático</button>
+      </div>
+ 
+      <button class="back" onclick="goToPage('info')">Voltar</button>
+    </div>
+  </section>
+ 
+  <script>
+    function goToPage(id) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // ====== BOTÃO DE ENERGIA ======
+    const powerBtn = document.getElementById('powerBtn');
+    powerBtn.onclick = function() {
+      const ligado = this.classList.toggle('on');
+      if (ligado) {
+        this.textContent = '⛔ Desligar';
+      } else {
+        this.textContent = '🔌 Ligar';
+      }
+    };
+
+    // ====== BUZINA ======
+    const hornBtn = document.getElementById('hornBtn');
+    hornBtn.addEventListener('click', () => {
+      const ativo = hornBtn.classList.toggle('ativo');
+      if (ativo) {
+        hornBtn.textContent = '🔊 Buzina';
+        // aqui você pode enviar comando ao ESP32 para ligar o buzzer
+      } else {
+        hornBtn.textContent = '🔈 Buzina';
+        // aqui você pode enviar comando ao ESP32 para desligar o buzzer
+      }
+    });
+
+    // ====== CONTROLE DE MODO ======
+    const manualBtn = document.getElementById("manualBtn");
+    const autoBtn = document.getElementById("autoBtn");
+    const joystick = document.querySelector(".joystick");
+ 
+    manualBtn.addEventListener("click", () => {
+      joystick.classList.remove("auto-active");
+      manualBtn.classList.add("active");
+      autoBtn.classList.remove("active");
+    });
+ 
+    autoBtn.addEventListener("click", () => {
+      joystick.classList.add("auto-active");
+      autoBtn.classList.add("active");
+      manualBtn.classList.remove("active");
+    });
+  </script>
+</body>
+</html>

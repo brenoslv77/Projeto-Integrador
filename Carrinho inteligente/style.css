@@ -1,0 +1,274 @@
+/* ======= ESTILO GERAL ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0e0e0e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ======= SEÇÕES ======= */
+.page {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  transition: opacity 0.5s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* ======= TELA INICIAL ======= */
+.intro h1 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.intro h1 span {
+  color: #f8c331;
+  font-weight: 700;
+}
+
+#Controle12 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.intro p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #cfcfcf;
+}
+
+/* Botão ENTRAR - igual ao "Ir para Controle" */
+button.next {
+  background-color: #f8c331;
+  color: #000;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(248, 195, 49, 0.4);
+  font-size: 1rem;
+  margin-top: 25px;
+}
+
+button.next:hover {
+  background-color: #ffd347;
+  transform: scale(1.05);
+}
+
+/* ======= INFORMAÇÕES DO CARRINHO ======= */
+#info h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+  color: #f8c331;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+}
+
+/* ======= CONTROLE DO CARRINHO ======= */
+#control {
+  text-align: center;
+}
+
+#control h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+/* ======= BOTÕES PRINCIPAIS ======= */
+.power-section {
+  display: flex;
+  gap: 15px;
+}
+
+/* botão padrão */
+.btn-power,
+.btn-horn {
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+/* energia */
+.btn-power {
+  background-color: #f8c331;
+  color: #000;
+}
+
+.btn-power.on {
+  background-color: #e74c3c;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+/* buzina */
+.btn-horn {
+  background-color: #3b3b3b;
+  color: #f8c331;
+}
+
+.btn-horn.ativo {
+  background: linear-gradient(135deg, #f7b731 0%, #f4a017 100%);
+  color: #000;
+  box-shadow: 0 0 15px rgba(248, 195, 49, 0.6);
+  transform: scale(1.05);
+}
+
+.btn-power:hover,
+.btn-horn:hover {
+  transform: scale(1.05);
+}
+
+/* ======= JOYSTICK ======= */
+.joystick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.joystick .middle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #f8c331;
+  color: #f8c331;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.stop {
+  background-color: #f00;
+  color: #fff;
+  border: none;
+}
+
+.btn:hover {
+  background-color: rgba(248, 195, 49, 0.25);
+  box-shadow: 0 0 10px rgba(248, 195, 49, 0.6);
+  transform: scale(1.1);
+}
+
+/* modo automático ativo */
+.auto-active .btn {
+  border-color: #00ff80;
+  color: #00ff80;
+}
+
+.auto-active .btn.stop {
+  background-color: #00cc66;
+  color: #fff;
+}
+
+/* ======= MODO MANUAL / AUTOMÁTICO ======= */
+.mode-section {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-mode {
+  background-color: #2b2b2b;
+  color: #f8c331;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-mode.active {
+  background-color: #00cc66;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
+}
+
+.btn-mode:hover {
+  background-color: #3b3b3b;
+  transform: scale(1.05);
+}
+
+/* ======= BOTÃO VOLTAR ======= */
+.back {
+  background-color: #f8c331;
+  color: #000;
+  border: none;
+  padding: 12px 50px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.back:hover {
+  background-color: #ffd347;
+  transform: scale(1.05);
+}
