@@ -13,5 +13,5 @@ Implementei parte do projeto com base no conteúdo aprendido em aula e complemen
 ### Casa Inteligente
 Projeto desenvolvido em aula junto com a professora, com foco no aprendizado de HTML, CSS e JavaScript.
 
-### Projeto em Grupo
-Participei do projeto em equipe, contribuindo no desenvolvimento geral e organização do trabalho.
+### DedoBol
+Participei do projeto em equipe, contribuindo no desenvolvimento geral e preservação dos arquivos do desenvolvimento.
